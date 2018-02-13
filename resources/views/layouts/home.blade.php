@@ -12,10 +12,63 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('statics/bootstrap-3.3.5/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('statics/bootstrap-3.3.5/css/bootstrap-theme.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('statics/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('statics/css/bjy.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('statics/css/common.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/home/index.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('statics/animate/animate.min.css') }}">
     @yield('css')
+    <style>
+        /*card-user*/
+        .card-user .bg-placeholder {
+            background-image: linear-gradient(135deg, #000, #333, #666);
+        }
+        .card-user .description-block {
+            display: block;
+            margin: 10px 0;
+            text-align: center;
+        }
+        .card-user .description-block > .description-header {
+            margin: 0 5px;
+            padding: 0;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .card-user {
+            position: relative;
+        }
+        .card-user .card-user-header {
+            padding: 20px;
+            height: 160px;
+            color: white;
+        }
+        .card-user .card-user-username {
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 23px;
+            font-weight: 300;
+            text-shadow: 3px 3px 3px #333;
+        }
+        .card-user .card-user-desc {
+            margin-top: 0;
+            text-shadow: 3px 3px 3px #333;
+        }
+        .card-user .card-user-image {
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            margin-left: -45px;
+        }
+        .card-user .card-user-image > img {
+            width: 90px;
+            height: 90px;
+            border: 2px solid #fff;
+        }
+        .card-user .card-user-footer {
+            padding: 30px 30px 10px 30px;
+        }
+        .rounded-circle {
+            border-radius: 50% !important;
+        }
+    </style>
 </head>
 <body>
 <!-- 顶部导航开始 -->
@@ -35,7 +88,7 @@
                     <li class="b-lc-echo">echo</li>
                 </ul>
                 <p class="b-logo-word">'{{ $config['WEB_NAME'] }}'</p>
-                <p class="b-logo-end">;</p>
+                {{--<p class="b-logo-end">;</p>--}}
             </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -84,6 +137,36 @@
         @yield('content')
         <!-- 通用右部区域开始 -->
         <div id="b-public-right" class="col-lg-4 hidden-xs hidden-sm hidden-md">
+            <div class="b-tags">
+                <div class="card card-user mb-3" style="overflow: hidden">
+                <div class="card-user-header bg-placeholder">
+                    <h4 class="card-user-username">{{ $config['AUTHOR'] }}</h4>
+                    <h5 class="card-user-desc">{{ config('blog.author_proverb') }}</h5>
+                </div>
+                <div class="card-user-image">
+                    <img class="rounded-circle"
+                         src="{{ asset('images/admin/avatar.jpg') }}"
+                         alt="User Avatar">
+                </div>
+                <div class="card-user-footer">
+                    <div class="row">
+                        <ul class="list-inline text-primary">
+                            <li style="margin-right: 12px;"><i class="fa fa-address-card fa-lg"></i> web后端开发</li>
+                            <li><i class="fa fa-envelope fa-lg"></i> <a href="mailto:{{ $config['ADMIN_EMAIL'] }}}">{{ $config['ADMIN_EMAIL'] }}</a></li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                            <div class="col border-right center-block">
+                                <div class="description-block">
+                                    <a href="#" title="#" class="description-header text-muted"><i class="fa fa-qq fa-lg"></i></a>
+                                    <a href="#" title="#" class="description-header text-muted"><i class="fa fa-weibo fa-lg"></i></a>
+                                    <a href="#" title="#" class="description-header text-muted"><i class="fa fa-github fa-lg"></i></a>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                </div>
+            </div>
             @if(!empty($config['QQ_QUN_NUMBER']))
                 <div class="b-tags">
                 <h4 class="b-title">加入组织</h4>
@@ -174,7 +257,7 @@
         <footer id="b-foot" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <ul>
                 <li class="text-center">
-                    本博客使用免费开源的 <a rel="nofollow" href="https://github.com/baijunyao/laravel-bjyblog" target="_blank">laravel-bjyblog</a> {{ config('bjyblog.version') }} 搭建 © 2014-2018 {{ parse_url(config('app.url'))['host'] }} 版权所有 @if(!empty($config['WEB_ICP_NUMBER'])) ICP证：{{ $config['WEB_ICP_NUMBER'] }} @endif
+                    PowerBy laravel-bjyblog © 2018 {{ parse_url(config('app.url'))['host'] }} 版权所有 @if(!empty($config['WEB_ICP_NUMBER'])) ICP证：{{ $config['WEB_ICP_NUMBER'] }} @endif
                 </li>
                 <li class="text-center">
                     @if(!empty($config['ADMIN_EMAIL']))

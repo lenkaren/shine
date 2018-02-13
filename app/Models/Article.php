@@ -100,7 +100,7 @@ class Article extends Base
         // 获取文章分页
         $data = $this
             ->whereMap($map)
-            ->select('articles.id', 'articles.title', 'articles.cover', 'articles.author', 'articles.description', 'articles.category_id', 'articles.created_at', 'c.name as category_name')
+            ->select('articles.id', 'articles.title', 'articles.cover', 'articles.author', 'articles.description', 'articles.category_id', 'articles.created_at', 'c.name as category_name', 'articles.click')
             ->join('categories as c', 'articles.category_id', 'c.id')
             ->orderBy('articles.created_at', 'desc')
             ->paginate(10);

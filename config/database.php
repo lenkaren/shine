@@ -49,7 +49,7 @@ return [
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix' => 'bjy_',
+            'prefix' => '',
             'strict' => false,
             'engine' => null,
         ],
@@ -87,7 +87,7 @@ return [
             'password' => env('OLD_DB_PASSWORD', ''),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix' => 'bjy_',
+            'prefix' => '',
             'strict' => false,
             'engine' => null,
         ]

@@ -27,22 +27,25 @@
         @foreach($article as $k => $v)
             <div class="row b-one-article">
                 <h3 class="col-xs-12 col-md-12 col-lg-12">
-                    <a class="b-oa-title" href="{{ url('article', [$v->id]) }}" target="_blank">{{ $v->title }}</a>
+                    <a class="b-oa-title" href="{{ url('article', [$v->id]) }}">{{ $v->title }}</a>
                 </h3>
                 <div class="col-xs-12 col-md-12 col-lg-12 b-date">
                     <ul class="row">
-                        <li class="col-xs-5 col-md-2 col-lg-3">
-                            <i class="fa fa-user"></i> {{ $v->author }}
-                        </li>
+                        {{--<li class="col-xs-5 col-md-2 col-lg-2">--}}
+                            {{--<i class="fa fa-user"></i> {{ $v->author }}--}}
+                        {{--</li>--}}
                         <li class="col-xs-7 col-md-3 col-lg-3">
                             <i class="fa fa-calendar"></i> {{ $v->created_at }}
                         </li>
                         <li class="col-xs-5 col-md-2 col-lg-2">
-                            <i class="fa fa-list-alt"></i> <a href="{{ url('category', [$v->category_id]) }}" target="_blank">{{ $v->category_name }}</a>
+                            <i class="fa fa-eye"></i> 阅读数: {{ $v->click }}
                         </li>
-                        <li class="col-xs-7 col-md-5 col-lg-4 "><i class="fa fa-tags"></i>
+                        <li class="col-xs-5 col-md-2 col-lg-2">
+                            <i class="fa fa-list-alt"></i> <a href="{{ url('category', [$v->category_id]) }}">{{ $v->category_name }}</a>
+                        </li>
+                        <li class="col-xs-7 col-md-4 col-lg-4 "><i class="fa fa-tags"></i>
                             @foreach($v->tag as $n)
-                                <a class="b-tag-name" href="{{ url('tag', [$n->tag_id]) }}" target="_blank">{{ $n->name }}</a>
+                                <a class="b-tag-name" href="{{ url('tag', [$n->tag_id]) }}">{{ $n->name }}</a>
                             @endforeach
                         </li>
                     </ul>
@@ -52,11 +55,11 @@
                         <!-- 文章封面图片开始 -->
                         <div class="col-sm-6 col-md-6 col-lg-4 hidden-xs">
                             <figure class="b-oa-pic b-style1">
-                                <a href="{{ url('article', $v->id) }}" target="_blank">
+                                <a href="{{ url('article', $v->id) }}">
                                     <img src="{{ asset($v->cover) }}" alt="{{ $config['IMAGE_TITLE_ALT_WORD'] }}" title="{{ $config['IMAGE_TITLE_ALT_WORD'] }}">
                                 </a>
                                 <figcaption>
-                                    <a href="{{ url('article', [$v->id]) }}" target="_blank"></a>
+                                    <a href="{{ url('article', [$v->id]) }}"></a>
                                 </figcaption>
                             </figure>
                         </div>
@@ -69,7 +72,8 @@
                         <!-- 文章描述结束 -->
                     </div>
                 </div>
-                <a class=" b-readall" href="{{ url('article', [$v->id]) }}" target="_blank">阅读全文</a>
+                {{--<span style="position:relative;float:right;padding:0 10px;margin-right: 120px;"><i class="fa fa-eye"></i>阅读量:{{$v->click}}</span>--}}
+                <a class="b-readall" href="{{ url('article', [$v->id]) }}">阅读全文</a>
             </div>
         @endforeach
         <!-- 循环文章列表结束 -->

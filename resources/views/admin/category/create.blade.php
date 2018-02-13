@@ -41,7 +41,7 @@
             <tr>
                 <th>排序</th>
                 <td>
-                    <input class="form-control" type="text" name="sort" value="{{ old('sort') }}">
+                    <input class="form-control" type="text" name="sort" value="{{ old('sort') ?: 0 }}">
                 </td>
             </tr>
             <tr>
