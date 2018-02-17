@@ -152,7 +152,7 @@
                     <div class="row">
                         <ul class="list-inline text-primary">
                             <li style="margin-right: 12px;"><i class="fa fa-address-card fa-lg"></i> web后端开发</li>
-                            <li><i class="fa fa-envelope fa-lg"></i> <a href="mailto:{{ $config['ADMIN_EMAIL'] }}}">{{ $config['ADMIN_EMAIL'] }}</a></li>
+                            <li><i class="fa fa-envelope fa-lg"></i> <a href="mailto:{{ $config['ADMIN_EMAIL'] }}">{{ $config['ADMIN_EMAIL'] }}</a></li>
                         </ul>
                     </div>
                     <div class="row">
