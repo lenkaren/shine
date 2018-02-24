@@ -7,8 +7,17 @@ fork from [baijunyao/laravel-bjyblog(v5.5.0.9)](https://github.com/baijunyao/lar
 git clone https://github.com/lenkaren/shine.git && cd shine && cp .env.example .env && composer install -vvv && php artisan bjyblog:install
 ```
 
-默认帐号密码(Default user/pw):
+### 默认帐号密码(Default user/pw):
 ```
 user: test@test.com
 pw: 123456
 ```
+
+### OAuth2.0回调地址
+
+qq回调地址:
+http://yourhostname.com/auth/oauth/handleProviderCallback/qq
+
+github回调地址：http://yourhostname.com/auth/oauth/handleProviderCallback/github
+
+微博回调地址：http://yourhostname.com/auth/oauth/handleProviderCallback/weibo
